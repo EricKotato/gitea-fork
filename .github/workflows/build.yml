@@ -23,6 +23,7 @@ jobs:
         with:
           ref: '04afd9d1e2399d61978fdeeab7e7ac8ff9057a93'
       - name: Build
+        shell: bash
         run: |
           TAGS="bindata" make build
       - name: Move artifact
