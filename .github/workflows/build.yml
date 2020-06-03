@@ -21,7 +21,7 @@ jobs:
       - name: Clone
         uses: actions/checkout@v2
         with:
-          ref: '04afd9d1e2399d61978fdeeab7e7ac8ff9057a93'
+          ref: 'a3b185d54c1a2a942b105b706ea61af31200060f'
       - name: Build
         shell: bash
         run: |
