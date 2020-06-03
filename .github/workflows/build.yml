@@ -8,6 +8,9 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
+        tags:
+          - bindata
+          - bindata sqlite sqlite_unlock_notify
 
     steps:
       - name: Setup Go
@@ -25,7 +28,7 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          TAGS="bindata" make build
+          TAGS="${{ matrix.tags }}" make build
       - name: Move artifact
         shell: bash
         run: |
@@ -34,5 +37,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: gitea-${{ matrix.os }}
+          name: gitea-${{ matrix.os }} (${{ matrix.tags }})
           path: ./artifact/
